@@ -1,0 +1,30 @@
+h1 {
+    color: black;
+    text-align: center;
+}
+
+.navBarContainer {
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 6rem;
+    padding-right: 6rem;
+
+}
+
+.title {
+    padding: 2rem;
+}
+
+.carrito {
+    height: 30px;
+    width: 10px ;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+}
