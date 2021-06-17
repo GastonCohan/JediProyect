@@ -4,10 +4,10 @@ import "./ShopButtonStyles.css"
 
 const ShopButtonComponent = (props) => (
   <div className="shopButtonStyles">  
-    <Button animated='vertical' color="black">
+    <Button animated='vertical' style={{backgroundColor: "#3EDBF0"}}>
       <Button.Content hidden>{props.title}</Button.Content>
       <Button.Content visible>
-        <Icon name='shop' color="white" />
+        <Icon name='shop' color="black " />
       </Button.Content>
     </Button>
   </div>

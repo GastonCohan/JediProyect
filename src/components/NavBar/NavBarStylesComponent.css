@@ -1,10 +1,10 @@
 h1 {
-    color: black;
+    color: #3EDBF0;
     text-align: center;
 }
 
 .navBarContainer {
-    background-color: aqua;
+    background-color: black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
