@@ -7,9 +7,9 @@ const CuerpoComponent = () => (
   <div className="bodyStyle" style={{  
     backgroundImage: "url(" + "https://images2.alphacoders.com/785/785330.jpg" + ")",
     backgroundSize: 'cover',
-    height: "760px"
+    height: "720px"
   }}> 
-   
+   <h1>Hola</h1>
   </div>
 )
 
