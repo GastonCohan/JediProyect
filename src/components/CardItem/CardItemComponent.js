@@ -17,33 +17,46 @@ function CardItemComponent() {
         }
     }
 
+    const countUpHandler = () => {
+        if(products.stock === count) {
+            return products.stock
+        } else { 
+            setCount(count + 1)
+        }
+    }
+
     useEffect(() => {
         setTimeout(() => {
           setProducts(productsData);
           console.log(products);
         }, 2000);
       });
+
+
     
     return (
-            <div style={{flexDirection: "row", display: "flex"}}>
-                {products.map((products, name, price, image) => {
+            <div style={{flexDirection: "row", display: "flex", justifyContent: "center", alignItems: "center"}}>
+                {products.map((products) => {
                     return (
                         <div class="ui card" style={{marginLeft: '50px'}} key={products.id}>
                             <div class="image"> <img src={products.image}></img></div>
-                                <div class="content">
-                                    <h3 className="titleProduct">{products.name}</h3>
+                                <div class="content" style={{backgroundColor: '#EDEDED '}}>
+                                    <h2 className="titleProduct">{products.name}</h2>
                                         <div className="titleProduct">
-                                            <h2>{products.price}</h2>
+                                            <h3>{products.price}</h3>
+                                        </div>     
+                                        <div className="titleProduct">
+                                            <h3> Stock: {products.stock}</h3>
                                         </div>      
+                                    <div className="ButtonList">
+                                        <Button className="functionButton" color="red"  onClick={() => countDownHandler()}> - </Button>
+                                        <h3 className="contador">{count}</h3>
+                                        <Button className="functionButton" color="green" onClick={() => countUpHandler()}> + </Button>
+                                    </div>
+                                    <div className="ButtonAdd">
+                                        <PrimaryButton text="Agregar a carrito"/>
+                                    </div>
                                 </div>
-                                <div className="ButtonList">
-                                    <Button className="functionButton" color="green" onClick={() => setCount(count + 1)}> + </Button>
-                                    <h3 className="contador">{count}</h3>
-                                    <Button className="functionButton" color="red"  onClick={() => countDownHandler()}> - </Button>
-                                </div>
-                            <div className="ButtonAdd">
-                                <PrimaryButton text="Agregar a carrito"/>
-                            </div>
                         </div>
                         );         
                     })}      

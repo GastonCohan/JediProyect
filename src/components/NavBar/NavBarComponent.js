@@ -10,7 +10,7 @@ function NavBarComponent() {
     return (
         <div className="navBarContainer"> 
             <div className="title">
-                <h1 className="textTitle">Jedi Collector</h1>
+                <h1 className="textTitle">Jedi Collector 1971</h1>
             </div>
             <div className="options">
                 <div style={{marginLeft: "10px"}}>
