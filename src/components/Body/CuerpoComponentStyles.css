@@ -1,0 +1,41 @@
+.textTitleBody {
+    color: black;
+    text-align: center;
+}
+
+.containerAboutUs{
+    padding-right: 30rem;
+    padding-left: 30rem;
+    margin-top: 50px;
+}
+
+.textAboutUs {
+    color: black;
+    font-size: medium;
+    text-indent: 0%;
+    line-height: 38px;
+}
+
+.titleContainer {
+    margin-top: 50px;
+}
+
+.tiendaContainer {
+    padding-left: 9rem;
+    padding-right: 9rem;
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.titleProduct {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+
+

@@ -14,7 +14,7 @@ function App() {
     <div id="NavBar">
       <NavBarComponent/>
     </div>
-    <div id="bodyContainer">
+    <div className="BodyContainer">
       <CuerpoComponent/>
     </div>
   </div>

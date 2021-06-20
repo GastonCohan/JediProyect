@@ -1,4 +1,4 @@
-h1 {
+.textTitle {
     color: #3EDBF0;
     text-align: center;
 }
@@ -25,6 +25,4 @@ h1 {
 .options {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: auto;
 }
