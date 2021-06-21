@@ -11,7 +11,7 @@ import CuerpoComponent from './components/Body/CuerpoComponent';
 function App() {
   return (
   <div className="PageContainer">
-    <div id="NavBar">
+    <div id="NavBar" >
       <NavBarComponent/>
     </div>
     <div className="BodyContainer">

@@ -17,7 +17,7 @@ function NavBarComponent() {
                     <PrimaryButton text="Nosotros"/>
                 </div>
                 <div style={{marginLeft: "10px"}}>
-                    <PrimaryButton text="Instagram"/>
+                <a href="https://www.instagram.com/yoda.1971/?hl=es-la"><PrimaryButton text="Instagram"/></a>
                 </div>
                 <div style={{marginLeft: "10px"}}>
                     <ShopButtonComponent title="Tienda"/>
