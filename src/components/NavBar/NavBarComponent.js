@@ -3,10 +3,16 @@ import "./NavBarStylesComponent.css"
 
 //Components 
 
-import ShopButtonComponent from '../Buttons/ShopButton/ShopButtonComponent'
-import PrimaryButton from '../Buttons/PrimaryButton/PrimaryButtonComponent'
+import AnimatedButtonComponent from '../Buttons/AnimatedButton/AnimatedButtonComponent'
+
+
 
 function NavBarComponent() {
+
+    const goToSignInScreen = () => {
+        
+    } 
+
     return (
         <div className="navBarContainer"> 
             <div className="title">
@@ -14,13 +20,13 @@ function NavBarComponent() {
             </div>
             <div className="options">
                 <div style={{marginLeft: "10px"}}>
-                    <PrimaryButton text="Nosotros"/>
+                <AnimatedButtonComponent icon="sign in" title="Ingresar" onClick={goToSignInScreen()}/>
                 </div>
                 <div style={{marginLeft: "10px"}}>
-                <a href="https://www.instagram.com/yoda.1971/?hl=es-la"><PrimaryButton text="Instagram"/></a>
+                <a href="https://www.instagram.com/yoda.1971/?hl=es-la" target="blanck"><AnimatedButtonComponent icon="instagram" title="Instagram"/></a>
                 </div>
                 <div style={{marginLeft: "10px"}}>
-                    <ShopButtonComponent title="Tienda"/>
+                    <AnimatedButtonComponent title="Tienda" icon="shop"/>
                 </div>
             </div>     
         </div>

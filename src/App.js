@@ -8,7 +8,7 @@ import CuerpoComponent from './components/Body/CuerpoComponent';
 
 // RENDER
 
-function App() {
+function HomeScreen() {
   return (
   <div className="PageContainer">
     <div id="NavBar" >
@@ -21,4 +21,27 @@ function App() {
   );
 }
 
-export default App;
+export default HomeScreen;
+
+
+
+
+
+
+
+
+// class App extends React.Component {
+//   render() {
+//     return(
+//       <Router history={browserHistory}>
+//         <Rout path={"/"} component={Rout}>
+//           <IndexRoute component={HomeScreen}/>
+
+//         </Rout>
+//       </Router>
+//     )
+//   }
+  
+// }
+
+
