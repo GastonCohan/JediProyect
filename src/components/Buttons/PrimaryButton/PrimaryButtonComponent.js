@@ -3,7 +3,7 @@ import { Button } from 'semantic-ui-react'
 
 const PrimaryButton = (props) => (
   <div> 
-    <Button secondary style={{backgroundColor: "#3EDBF0", color: "black"}}>{props.text}</Button>
+    <Button secondary style={{backgroundColor: "black", color: "white", width:"220px", borderRadius:"10px"}}>{props.text}</Button>
   </div>
 )
 

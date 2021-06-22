@@ -1,6 +1,6 @@
 import React from 'react'
 import "./NavBarStylesComponent.css"
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 
 //Components 
 
@@ -9,7 +9,7 @@ import AnimatedButtonComponent from '../Buttons/AnimatedButton/AnimatedButtonCom
 
 
 function NavBarComponent() {
-
+    
     return (
         <div className="navBarContainer"> 
             <div className="title">
