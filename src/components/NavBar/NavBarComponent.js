@@ -1,5 +1,6 @@
 import React from 'react'
 import "./NavBarStylesComponent.css"
+import { Link } from 'react-router-dom'
 
 //Components 
 
@@ -9,10 +10,6 @@ import AnimatedButtonComponent from '../Buttons/AnimatedButton/AnimatedButtonCom
 
 function NavBarComponent() {
 
-    const goToSignInScreen = () => {
-        
-    } 
-
     return (
         <div className="navBarContainer"> 
             <div className="title">
@@ -20,7 +17,9 @@ function NavBarComponent() {
             </div>
             <div className="options">
                 <div style={{marginLeft: "10px"}}>
-                <AnimatedButtonComponent icon="sign in" title="Ingresar" onClick={goToSignInScreen()}/>
+                <Link to="/SignIn">
+                    <AnimatedButtonComponent icon="sign in" title="Ingresar"/>
+                </Link>
                 </div>
                 <div style={{marginLeft: "10px"}}>
                 <a href="https://www.instagram.com/yoda.1971/?hl=es-la" target="blanck"><AnimatedButtonComponent icon="instagram" title="Instagram"/></a>
