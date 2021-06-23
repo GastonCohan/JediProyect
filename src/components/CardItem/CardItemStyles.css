@@ -39,12 +39,15 @@
 .cardContainer {
     flex-direction: row;
     display: flex;
+    flex-wrap: wrap;
+    margin-top:-50px;
 }
 
 .innerCardContainer {
     margin-left: 20px;
     margin-right: 20px;
   background-color: #E1E8EB;
+  margin-top: 50px;
 }
 
 .descriptionCard {

@@ -21,9 +21,12 @@
 }
 
 .tiendaContainer {
-    padding-left: 9rem;
-    padding-right: 9rem;
-    margin-top: 45px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-content:center;
+    align-items: center;
+    margin-top: 20px;
     padding: 2%;
 }
 

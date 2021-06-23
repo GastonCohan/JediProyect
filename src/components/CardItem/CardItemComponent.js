@@ -30,7 +30,7 @@ function CardItemComponent() {
                                             </div>     
                                             <div className="titleProduct">
                                                 <h3> Stock: {products.stock}</h3>
-                                            </div>      
+                                            </div>  
                                        <ItemCountComponent stock={products.stock}/>
                             </div>   
                         </div>        

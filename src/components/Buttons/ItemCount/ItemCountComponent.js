@@ -28,6 +28,11 @@ const llegaStock = props.stock
             return setCount(count + 1)
         } 
     }
+
+    const superaStock = () => {
+        if(count === llegaStock){
+            return true
+        }}
     
 
     return (  
@@ -37,6 +42,12 @@ const llegaStock = props.stock
             <h3 className="contador">{count}</h3>
             <Button className="functionButton" color="green" onClick={() => countUpHandler()}> + </Button>
         </div>
+        {
+            superaStock() &&
+            <div style={{justifyContent: "center", alignItems:"center", display:"flex", marginTop:"5px"}}> 
+                <h3 style={{color:"red"}}>Maximo stock permitido</h3>
+            </div>
+        }    
         <div className="ButtonAdd">
             <PrimaryButton text="Agregar a carrito"/>
         </div> 

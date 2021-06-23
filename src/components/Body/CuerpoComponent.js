@@ -20,9 +20,7 @@ const CuerpoComponent = () => (
       <h3 className="textDescrptionShop">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem odit saepe, placeat sint, quaerat voluptate sed quisquam iusto, et culpa eligendi esse incidunt illo laudantium exercitationem natus eveniet rerum! Quidem?</h3>
     </div>
     <div className="tiendaContainer">
-      <div className="productContainer">
       <CardItemComponent/>
-      </div>
     </div>
   </div>
 )
