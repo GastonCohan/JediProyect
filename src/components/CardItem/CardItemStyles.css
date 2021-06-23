@@ -33,7 +33,7 @@
 }
 
 .imageCard {
-    padding: 1px;
+    padding: 2px;
 }
 
 .cardContainer {
@@ -41,12 +41,14 @@
     display: flex;
     flex-wrap: wrap;
     margin-top:-50px;
+    justify-content: center;
+    align-items: center;
 }
 
 .innerCardContainer {
     margin-left: 20px;
     margin-right: 20px;
-  background-color: #E1E8EB;
+  background-color: #A2DBFA;
   margin-top: 50px;
 }
 
