@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import { Button } from 'semantic-ui-react'
+import { productsData } from "../../ItemList/ItemsListComponent";
 import PrimaryButton from "../PrimaryButton/PrimaryButtonComponent"
 import "./ItemCountStyles.css"
 
-function ItemCountComponent() {
+function ItemCountComponent(props) {
     
     const [count, setCount] = useState(0);
+    const [products, setProducts] = useState([])
 
 
     const countDownHandler = () => {
@@ -15,10 +17,18 @@ function ItemCountComponent() {
             setCount(count - 1)
         }
     }
+    
+const llegaStock = props.stock
+
 
     const countUpHandler = () => {
-            setCount(count + 1)
+        if(count === llegaStock){
+            return count 
+        } else {
+            return setCount(count + 1)
+        } 
     }
+    
 
     return (  
     <div>
