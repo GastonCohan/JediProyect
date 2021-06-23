@@ -4,7 +4,7 @@ import "./CardItemStyles.css"
 import { productsData } from "../ItemList/ItemsListComponent"
 
 
-function CardItemComponent() {
+function CardItemComponent(props) {
     
     const [products, setProducts] = useState([]);
 
@@ -26,12 +26,12 @@ function CardItemComponent() {
                             <div className="descriptionCard">   
                                 <h2 className="titleProduct">{products.name}</h2>
                                             <div className="titleProduct">
-                                                <h3>{products.price}</h3>
+                                                <h3>${products.price}</h3>
                                             </div>     
                                             <div className="titleProduct">
                                                 <h3> Stock: {products.stock}</h3>
                                             </div>  
-                                       <ItemCountComponent stock={products.stock}/>
+                                       <ItemCountComponent stock={products.stock} price={products.price}/>
                             </div>   
                         </div>        
                             )
