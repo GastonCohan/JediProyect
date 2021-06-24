@@ -25,7 +25,7 @@ function NavBarComponent() {
                 <a href="https://www.instagram.com/yoda.1971/?hl=es-la" target="blanck"><AnimatedButtonComponent icon="instagram" title="Instagram"/></a>
                 </div>
                 <div style={{marginLeft: "10px"}}>
-                    <AnimatedButtonComponent title="Tienda" icon="shop"/>
+                    <AnimatedButtonComponent title="Carrito" icon="shop"/>
                 </div>
             </div>     
         </div>

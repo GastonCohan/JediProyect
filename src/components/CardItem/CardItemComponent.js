@@ -4,7 +4,7 @@ import "./CardItemStyles.css"
 import { productsData } from "../ItemList/ItemsListComponent"
 
 
-function CardItemComponent(props) {
+function CardItemComponent() {
     
     const [products, setProducts] = useState([]);
 
@@ -12,7 +12,7 @@ function CardItemComponent(props) {
         setTimeout(() => {
           setProducts(productsData);
           console.log(products);
-        }, 2000);
+        });
       });
 
     return (    

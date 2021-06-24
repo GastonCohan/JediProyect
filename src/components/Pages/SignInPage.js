@@ -41,10 +41,14 @@ function SignInScreen() {
                             </div>   
                             <div>
                                 <div style={{marginTop:"5%", display:"flex", justifyContent:"center"}}>
+                                <Link to="/">
                                     <PrimaryButtonComponent text="Ingresar."/>
+                                </Link>    
                                 </div>
                                 <div style={{marginTop:"5%", display:"flex", justifyContent:"center"}}>
-                                    <PrimaryButtonComponent text="¿No tiénes cuenta? Regístrate."/>
+                                    <Link to="/Register">
+                                        <PrimaryButtonComponent text="¿No tiénes cuenta? Regístrate."/>
+                                    </Link>
                                 </div>
                                 <div style={{marginTop:"5%", display:"flex", justifyContent:"center"}}>
                                     <Link to="/"> 

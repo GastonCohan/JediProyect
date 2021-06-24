@@ -48,7 +48,7 @@ function ItemCountComponent(props) {
         {
             priceCounter() &&
             <div style={{justifyContent: "center", alignItems:"center", display:"flex", marginTop:"5px"}}>
-                <h3>Total: ${total}</h3>       
+                <h3>Subtotal: ${total}</h3>       
             </div>
         }  
         {
