@@ -3,13 +3,13 @@ import "semantic-ui-css/semantic.min.css"
 
 // COMPONENTS
 
-import NavBarComponent from "../../NavBar/NavBarComponent";
-import PrimaryButtonComponent from "../../Buttons/PrimaryButton/PrimaryButtonComponent";
+import NavBarComponent from "../../components/NavBar/NavBarComponent";
+import PrimaryButtonComponent from "../../components/Buttons/PrimaryButton/PrimaryButtonComponent";
 import { Link } from "react-router-dom";
 
 // RENDER
 
-function RecoverPasswordSucced() {
+function RecoverPassword() {
   return (
       <form>
             <div style={{ 
@@ -23,14 +23,19 @@ function RecoverPasswordSucced() {
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: "cover",}}>
                             <div style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
-                                <h2 style={{color: "white", marginTop:"7%", fontFamily: "monospace" }}>Email enviado con Exito!</h2>
+                                <h2 style={{color: "white", marginTop:"7%", fontFamily: "monospace" }}>Recupera la Contraseña</h2>
                                 <input type="text" placeholder="Email" style={{marginTop:"30%"}}/>
                             </div>
                             <div style={{marginTop:"5%", display:"flex", justifyContent:"center"}}>
-                                    <Link to="/SignIn"> 
-                                        <PrimaryButtonComponent text="Iniciar Sesion"/>
+                                <Link to="/RecoverPasswordSucced">
+                                        <PrimaryButtonComponent text="Enviar email"/>
                                     </Link>
-                            </div>       
+                            </div>
+                            <div style={{marginTop:"5%", display:"flex", justifyContent:"center"}}>
+                                    <Link to="/SignIn"> 
+                                        <PrimaryButtonComponent text="Volver"/>
+                                    </Link>
+                            </div>        
                         </div>
                         
             </div>
@@ -38,4 +43,4 @@ function RecoverPasswordSucced() {
   );
 }
 
-export default RecoverPasswordSucced;
+export default RecoverPassword;

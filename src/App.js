@@ -4,11 +4,11 @@ import { Route } from "react-router-dom"
 
 // COMPONENTS
 
-import HomeScreen from './components/Pages/HomePage/HomePage';
-import SignInScreen from './components/Pages/SignInPage/SignInPage';
-import RegisterScreen from './components/Pages/RegisterPage/RegisterPage';
-import RecoverPassword from './components/Pages/RecoverPasswordPage/RecoverPasswordPage'
-import RecoverPasswordSuccedPage from './components/Pages/RecoverPasswordSuccedPage/RecoverPasswordSuccedPage';
+import HomeScreen from './Pages/HomePage/HomePage';
+import SignInScreen from './Pages/SignInPage/SignInPage';
+import RegisterScreen from './Pages/RegisterPage/RegisterPage';
+import RecoverPassword from './Pages/RecoverPasswordPage/RecoverPasswordPage'
+import RecoverPasswordSuccedPage from './Pages/RecoverPasswordSuccedPage/RecoverPasswordSuccedPage';
 
 // RENDER
 

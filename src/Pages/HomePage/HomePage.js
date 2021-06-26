@@ -3,8 +3,8 @@ import "semantic-ui-css/semantic.min.css"
 
 // COMPONENTS
 
-import NavBarComponent from "../../NavBar/NavBarComponent"
-import CuerpoComponent from "../../Body/CuerpoComponent"
+import NavBarComponent from "../../components/NavBar/NavBarComponent"
+import CuerpoComponent from "../../components/Body/CuerpoComponent"
 
 // RENDER
 
