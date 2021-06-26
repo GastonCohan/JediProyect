@@ -1,6 +1,5 @@
 import React from "react";
 import "semantic-ui-css/semantic.min.css"
-import { Button } from 'react-bootstrap';
 
 // COMPONENTS
 
@@ -37,8 +36,9 @@ function SignInScreen() {
                                 </div>
                             </div> 
                             <div style={{display:"flex", flexDirection:"row",justifyContent:"center", marginTop:"3%"}}>
-                            <Link> <h3 style={{color:"white", fontSize:"12px"}}>Olvide mi Contraseña.</h3></Link>  
+                                <a href="/RecoverPassword"> <h3 style={{color:"white", fontSize:"100%"}}>Olvide mi Contraseña</h3></a>
                             </div>   
+                            
                             <div>
                                 <div style={{marginTop:"5%", display:"flex", justifyContent:"center"}}>
                                 <Link to="/">

@@ -51,7 +51,7 @@ function RegisterScreen() {
                                         </div>
                                         <div style={{marginTop:"5%", display:"flex", justifyContent:"center"}}>
                                             <Link to="/SignIn"> 
-                                                <PrimaryButtonComponent text="Volver."/>
+                                                <PrimaryButtonComponent text="¿Ya tienes una cuenta? Inicia sesión."/>
                                             </Link>
                                         </div>
                                     </div>
@@ -63,25 +63,3 @@ function RegisterScreen() {
 }
 
 export default RegisterScreen;
-
-  {/* <div style={{display:"flex", justifyContent:"center", alignItems:'center'}}>
-                                <h2 style={{color: "white", marginTop:"10%", fontFamily: "monospace" }}>Registrate</h2>
-                            </div>
-                            <div style={{marginTop:"10%", marginLeft:"10%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                                <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
-                                    <h3 style={{color:"white"}}>Usuario:</h3>
-                                    <input type="text" style={{height:"6%", marginLeft:"18%"}}/>
-                                </div>
-                                <div style={{display:"flex", flexDirection:"row",justifyContent:"center", marginTop:"3%"}}>
-                                    <h3 style={{color:"white"}}>Contraseña:</h3>
-                                    <input type="text" style={{height:"5%", marginLeft:"5%"}}/>
-                                </div>
-                                <div style={{display:"flex", flexDirection:"row",justifyContent:"center", marginTop:"3%", marginRight:"15%"}}>
-                                    <h3 style={{color:"white"}}>Repite la contraseña:</h3>
-                                    <input type="text" style={{height:"5%", marginLeft:"5%"}}/>
-                                </div>
-                                <div style={{display:"flex", flexDirection:"row",justifyContent:"center", marginTop:"3%"}}>
-                                    <h3 style={{color:"white"}}>Email:</h3>
-                                    <input type="text" style={{height:"5%", marginLeft:"28%"}}/>
-                                </div>
-</div> */}

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Button } from 'semantic-ui-react'
-import PrimaryButton from "../PrimaryButton/PrimaryButtonComponent"
 import "./ItemCountStyles.css"
+
 
 function ItemCountComponent(props) {
     
@@ -56,10 +56,7 @@ function ItemCountComponent(props) {
             <div style={{justifyContent: "center", alignItems:"center", display:"flex", marginTop:"5px"}}> 
                 <h3 style={{color:"red"}}>Maximo stock permitido</h3>
             </div>
-        }    
-        <div className="ButtonAdd">
-            <PrimaryButton text="Agregar a carrito"/>
-        </div> 
+        }   
     </div>
 
 )}
