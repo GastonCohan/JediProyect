@@ -1,9 +1,10 @@
+import React from "react";
 import "semantic-ui-css/semantic.min.css"
 
 // COMPONENTS
 
-import NavBarComponent from "../NavBar/NavBarComponent"
-import CuerpoComponent from "../Body/CuerpoComponent"
+import NavBarComponent from "../../NavBar/NavBarComponent"
+import CuerpoComponent from "../../Body/CuerpoComponent"
 
 // RENDER
 

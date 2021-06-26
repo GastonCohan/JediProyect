@@ -3,8 +3,8 @@ import "semantic-ui-css/semantic.min.css"
 
 // COMPONENTS
 
-import NavBarComponent from "../NavBar/NavBarComponent";
-import PrimaryButtonComponent from "../Buttons/PrimaryButton/PrimaryButtonComponent"
+import NavBarComponent from "../../NavBar/NavBarComponent";
+import PrimaryButtonComponent from "../../Buttons/PrimaryButton/PrimaryButtonComponent"
 import { Link } from "react-router-dom";
 
 // RENDER
