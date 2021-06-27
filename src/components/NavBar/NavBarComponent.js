@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import "./NavBarStylesComponent.css"
 import { Link } from 'react-router-dom'
 import { Modal, Button } from '@material-ui/core'
-import {makeStyles} from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
+
 
 //Components 
 
@@ -10,8 +11,8 @@ import AnimatedButtonComponent from '../Buttons/AnimatedButton/AnimatedButtonCom
 
 // Const
 
-const useStyles=makeStyles((theme) =>({
-    modal:{
+const useStyles = makeStyles((theme) => ({
+    modal: {
         position: 'absolute',
         width: 400,
         backgroundColor: 'white',
@@ -27,15 +28,18 @@ const useStyles=makeStyles((theme) =>({
 
 
 function NavBarComponent() {
-    const styles=useStyles();
+    const url = window.location.href.toLowerCase()
+    const styles = useStyles();
 
-    const [modal, setModal]=useState(false)
-    
+    const [modal, setModal] = useState(false)
+
     const abrirCerrarModal = () => {
         setModal(!modal)
     }
 
-    const body=(
+    console.log(url)
+
+    const body = (
         <div className={styles.modal}>
             <div align="center">
                 <h2>Carrito</h2>
@@ -48,28 +52,30 @@ function NavBarComponent() {
     )
 
     return (
-        <div className="navBarContainer"> 
+        <div className="navBarContainer">
             <div className="title">
                 <h1 className="textTitle">Jedi Collector 1971</h1>
             </div>
             <div className="options">
-                <div style={{marginLeft: "10px"}}>
-                <Link to="/SignIn">
-                    <AnimatedButtonComponent icon="sign in" title="Ingresar"/>
-                </Link>
+                {!(url.includes("signin") || url.includes("register") || url.includes("recoverpassword") || url.includes("recoverpasswordsucced")) &&
+                    <div style={{ marginLeft: "10px" }} >
+                        <Link to="/SignIn">
+                            <AnimatedButtonComponent icon="sign in" title="Ingresar" />
+                        </Link>
+                    </div>
+                }
+                <div style={{ marginLeft: "10px" }}>
+                    <a href="https://www.instagram.com/yoda.1971/?hl=es-la" target="blanck"><AnimatedButtonComponent icon="instagram" title="Instagram" /></a>
                 </div>
-                <div style={{marginLeft: "10px"}}>
-                <a href="https://www.instagram.com/yoda.1971/?hl=es-la" target="blanck"><AnimatedButtonComponent icon="instagram" title="Instagram"/></a>
-                </div>
-                <div style={{marginLeft: "10px"}}>
+                <div style={{ marginLeft: "10px" }}>
                     <AnimatedButtonComponent title="Carrito" icon="shop" onClick={() => abrirCerrarModal()} />
-                <Modal 
-                open={modal}
-                onClose={abrirCerrarModal}>
-                    {body}
-                </Modal>
+                    <Modal
+                        open={modal}
+                        onClose={abrirCerrarModal}>
+                        {body}
+                    </Modal>
                 </div>
-            </div>     
+            </div>
         </div>
     )
 }
