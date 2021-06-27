@@ -8,16 +8,6 @@ import Modal from 'react-modal';
 
 Modal.setAppElement("#root");
 
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
-};
 
 function CardItemComponent() {
 
@@ -25,8 +15,8 @@ function CardItemComponent() {
     const [products, setProducts] = useState([]);
 
     function toggleModal() {
+        console.log(isOpen)
         setIsOpen(!isOpen);
-        // console.log("hola")
     }
 
     useEffect(() => {
@@ -62,20 +52,42 @@ function CardItemComponent() {
                         <Modal
                             isOpen={isOpen}
                             onRequestClose={toggleModal}
-                            contentLabel="My dialog"
-                            overlayClassName="myoverlay"
-                            closeTimeoutMS={500}
-                            // className="modal"
-                            className={customStyles}
                         >
-                            <div>My modal dialog.</div>
-                            <button onClick={toggleModal}>Close modal</button>
+                            <div>
+                                <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                    <h1>Detalle del Producto</h1>
+                                </div>
+                                <div style={{ height: "570px", width: "15%", marginTop: "5%", border: "1px solid rgba(0, 0, 0, 1)" }}>
+                                    <div style={{ height: "142.5px", borderBottom: "1px solid", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                        <img src="https://http2.mlstatic.com/D_NQ_NP_840693-MLA44312554470_122020-O.jpg" alt="foto detalle 1" style={{ height: "140.5px" }} />
+                                    </div>
+                                    <div style={{ height: "142.5px", borderBottom: "1px solid", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                        <h1>foto 2 </h1>
+                                    </div>
+                                    <div style={{ height: "142.5px", borderBottom: "1px solid", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                        <h1>foto 3 </h1>
+                                    </div>
+                                    <div style={{ height: "142.5px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                        <h1>foto 4 </h1>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "flex-end" }}>
+                                <button onClick={toggleModal}>Cerrar</button>
+                            </div>
                         </Modal>
                     </div>
                 )
             })}
-        </div>
+        </div >
     )
 }
+
+const customStyles = {
+    content: {
+        backgorundColor: "red"
+    },
+};
 
 export default CardItemComponent

@@ -7,7 +7,7 @@ import CardItemComponent from '../CardItem/CardItemComponent'
 const CuerpoComponent = () => (
   <div>
     <div className="Banner">
-      <img src="https://www.thehomegaming.com/user/pages/01.blog/224.star-wars-a-traves-del-canon-00-principal/l3fya3oustw41.jpg" alt="" style={{height: "50vh", width: "100%"}} />
+      <img src="https://www.thehomegaming.com/user/pages/01.blog/224.star-wars-a-traves-del-canon-00-principal/l3fya3oustw41.jpg" alt="Banner" style={{ height: "50vh", width: "100%" }} />
     </div>
     <div className="titleContainer">
       <h1 className="textTitleBody">¿ Quiénes Somos ? </h1>
@@ -20,7 +20,7 @@ const CuerpoComponent = () => (
       <h3 className="textDescrptionShop">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem odit saepe, placeat sint, quaerat voluptate sed quisquam iusto, et culpa eligendi esse incidunt illo laudantium exercitationem natus eveniet rerum! Quidem?</h3>
     </div>
     <div className="tiendaContainer">
-      <CardItemComponent/>
+      <CardItemComponent />
     </div>
   </div>
 )
