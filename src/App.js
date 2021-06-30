@@ -10,6 +10,7 @@ import SignInScreen from './Pages/SignInPage/SignInPage';
 import RegisterScreen from './Pages/RegisterPage/RegisterPage';
 import RecoverPassword from './Pages/RecoverPasswordPage/RecoverPasswordPage'
 import RecoverPasswordSuccedPage from './Pages/RecoverPasswordSuccedPage/RecoverPasswordSuccedPage';
+import ShopComponent from './Pages/ShopPage/ShopComponent'
 
 // RENDER
 
@@ -18,11 +19,12 @@ Modal.setAppElement("#root");
 function App() {
   return (
     <div className="App">
-      <Route exact path="/" component={HomeScreen} />
+      <Route exact path="/Home" component={HomeScreen} />
       <Route exact path="/SignIn" component={SignInScreen} />
       <Route exact path="/Register" component={RegisterScreen} />
       <Route exact path="/RecoverPassword" component={RecoverPassword} />
       <Route exact path="/RecoverPasswordSucced" component={RecoverPasswordSuccedPage} />
+      <Route exact path="/Shop" component={ShopComponent} />
     </div>
   )
 }

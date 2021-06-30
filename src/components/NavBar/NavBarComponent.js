@@ -37,8 +37,6 @@ function NavBarComponent() {
         setModal(!modal)
     }
 
-    console.log(url)
-
     const body = (
         <div className={styles.modal}>
             <div align="center">
@@ -68,15 +66,25 @@ function NavBarComponent() {
                     <a href="https://www.instagram.com/yoda.1971/?hl=es-la" target="blanck"><AnimatedButtonComponent icon="instagram" title="Instagram" /></a>
                 </div>
                 <div style={{ marginLeft: "10px" }}>
-                    <AnimatedButtonComponent title="Carrito" icon="shop" onClick={() => abrirCerrarModal()} />
-                    <Modal
-                        open={modal}
-                        onClose={abrirCerrarModal}>
-                        {body}
-                    </Modal>
+                    {!(url.includes("shop")) &&
+                        <div>
+                            <Link to="/Shop">
+                                <AnimatedButtonComponent title="Tienda" icon="shop" />
+                            </Link>
+                        </div>
+                    }
+                </div>
+                <div>
+                    {!(url.includes("/home")) &&
+                        < div >
+                            <Link to="/home">
+                                <AnimatedButtonComponent title="Home" icon="home" />
+                            </Link>
+                        </div>
+                    }
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
