@@ -19,10 +19,7 @@ function CardItemComponent() {
 
     function changeIdentify(id) {
         const probando = products.find(p => p.id === id)
-        console.log("probando id:", id)
-        console.log("probando products:", products)
         setIdentify(probando)
-        console.log("ahora si", probando)
     }
 
 
@@ -40,7 +37,7 @@ function CardItemComponent() {
                 return (
                     <div className="innerCardContainer">
                         <div className="imageCard">
-                            <img src={product.image} alt="Product" style={{ height: "300px", width: "290px" }}></img>
+                            <img src={product.images[0]} alt="Product" style={{ height: "300px", width: "290px" }}></img>
                         </div>
                         <div className="descriptionCard">
                             <h2 className="titleProduct">{product.name}</h2>
