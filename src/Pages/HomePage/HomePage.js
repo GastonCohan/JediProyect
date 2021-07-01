@@ -10,14 +10,14 @@ import CuerpoComponent from "../../components/Body/CuerpoComponent"
 
 function HomeScreen() {
   return (
-  <div className="PageContainer">
-    <div id="NavBar" >
-      <NavBarComponent/>
+    <div className="PageContainer">
+      <div id="NavBar" >
+        <NavBarComponent />
+      </div>
+      <div className="BodyContainer">
+        <CuerpoComponent />
+      </div>
     </div>
-    <div className="BodyContainer">
-      <CuerpoComponent/>
-    </div>
-  </div>
   );
 }
 
