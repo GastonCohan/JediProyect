@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react"
 import ItemCountComponent from "../Buttons/ItemCount/ItemCountComponent";
 import "./CardItemStyles.css"
 import { productsData } from "../ItemList/ItemsListComponent"
-import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButtonComponent"
 import SecundaryButton from "../Buttons/SecundaryButton/SecundaryButtonComponent";
 import ModalComponent from "../Modal/ModalComponent";
+import { useCartContext } from "../../context/CartContext";
+
 
 function CardItemComponent() {
 
@@ -12,23 +13,24 @@ function CardItemComponent() {
     const [products, setProducts] = useState([]);
     const [identify, setIdentify] = useState(null);
 
+    const { addToCart } = useCartContext();
+    // const onAdd = qty => addToCart(product, qty);
+
     function toggleModal() {
-        console.log(isOpen)
         setIsOpen(!isOpen);
     }
 
     function changeIdentify(id) {
-        const probando = products.find(p => p.id === id)
-        setIdentify(probando)
+        const productos = products.find(p => p.id === id)
+        setIdentify(productos)
     }
-
-
 
     useEffect(() => {
         setTimeout(() => {
             setProducts(productsData);
         });
     });
+
 
     return (
         <div className="cardContainer">
@@ -47,14 +49,12 @@ function CardItemComponent() {
                             <div className="titleProduct">
                                 <h3> Stock: {product.stock}</h3>
                             </div>
-                            <ItemCountComponent stock={product.stock} price={product.price} />
+                            <ItemCountComponent onAdd={qty => addToCart(product, qty)} stock={product.stock} price={product.price} />
                         </div>
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "5%", marginBottom: "5%" }} onClick={() => { toggleModal(); changeIdentify(product.id) }}>
                             <SecundaryButton text="Detalle del producto" />
                         </div>
-                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "5%", marginBottom: "5%" }}>
-                            <PrimaryButton text="Agregar al carrito" />
-                        </div>
+
                     </div>
                 )
             })}

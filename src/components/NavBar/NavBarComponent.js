@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./NavBarStylesComponent.css"
 import { Link } from 'react-router-dom'
 
 //Components 
 
 import AnimatedButtonComponent from '../Buttons/AnimatedButton/AnimatedButtonComponent'
+import ModalCarrito from "../ModalCarrito/ModalCarrito"
 
 // Const
 
+
+
 function NavBarComponent() {
 
+    const [isOpen, setIsOpen] = useState(false);
     const url = window.location.href.toLowerCase()
+
+
+    function toggleModal() {
+        console.log(isOpen)
+        setIsOpen(!isOpen);
+    }
 
     return (
         <div className="navBarContainer">
+            <ModalCarrito isOpen={isOpen} toggleModal={toggleModal} />
             <div className="title">
                 <h1 className="textTitle">Jedi Collector 1971</h1>
             </div>
@@ -43,6 +54,13 @@ function NavBarComponent() {
                             <Link to="/Shop">
                                 <AnimatedButtonComponent title="Tienda" icon="shop" />
                             </Link>
+                        </div>
+                    }
+                </div>
+                <div>
+                    {(url.includes("shop")) &&
+                        <div onClick={() => { toggleModal() }}>
+                            <AnimatedButtonComponent title="Carrito" icon="shop" />
                         </div>
                     }
                 </div>
