@@ -5,13 +5,13 @@ import { productsData } from "../ItemList/ItemsListComponent"
 import SecundaryButton from "../Buttons/SecundaryButton/SecundaryButtonComponent";
 import ModalComponent from "../Modal/ModalComponent";
 import { useCartContext } from "../../context/CartContext";
-
+import { db } from "../../firebase/firebase"
 
 function CardItemComponent() {
 
     const [isOpen, setIsOpen] = useState(false);
-    const [products, setProducts] = useState([]);
     const [identify, setIdentify] = useState(null);
+    const [productos, setProductos] = useState([]);
 
     const { addToCart } = useCartContext();
     // const onAdd = qty => addToCart(product, qty);
@@ -21,37 +21,51 @@ function CardItemComponent() {
     }
 
     function changeIdentify(id) {
-        const productos = products.find(p => p.id === id)
-        setIdentify(productos)
+
+        setIdentify(productos.find(p => p.id === id))
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            setProducts(productsData);
-        });
-    });
+        // setProducts(productsData);
+        getProducts()
+    }, []);
+
+    console.log(productos)
+
+    const getProducts = () => {
+        const docs = [];
+        db.collection("products").onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                docs.push({ ...doc.data(), id: doc.id })
+                console.log(docs)
+            });
+            setProductos(docs)
+        })
+    }
+
 
 
     return (
         <div className="cardContainer">
             <ModalComponent isOpen={isOpen} toggleModal={toggleModal} product={identify} />
-            {products.map((product) => {
+            {productos.map((producto) => {
+                console.log("identificar producto:", producto)
                 return (
                     <div className="innerCardContainer">
                         <div className="imageCard">
-                            <img src={product.images[0]} alt="Product" style={{ height: "300px", width: "290px" }}></img>
+                            <img src={producto.img1} alt="Product" style={{ height: "300px", width: "290px" }}></img>
                         </div>
                         <div className="descriptionCard">
-                            <h2 className="titleProduct">{product.name}</h2>
+                            <h2 className="titleProduct">{producto.title}</h2>
                             <div className="titleProduct">
-                                <h3>${product.price}</h3>
+                                <h3>${producto.price}</h3>
                             </div>
                             <div className="titleProduct">
-                                <h3> Stock: {product.stock}</h3>
+                                <h3> Stock: {producto.stock}</h3>
                             </div>
-                            <ItemCountComponent onAdd={qty => addToCart(product, qty)} stock={product.stock} price={product.price} />
+                            <ItemCountComponent onAdd={qty => addToCart(producto, qty)} stock={producto.stock} price={producto.price} />
                         </div>
-                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "5%", marginBottom: "5%" }} onClick={() => { toggleModal(); changeIdentify(product.id) }}>
+                        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "5%", marginBottom: "5%" }} onClick={() => { toggleModal(); changeIdentify(producto.id) }}>
                             <SecundaryButton text="Detalle del producto" />
                         </div>
 

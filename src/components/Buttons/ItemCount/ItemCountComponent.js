@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Button } from 'semantic-ui-react'
 import "./ItemCountStyles.css"
 import PrimaryButton from "../PrimaryButton/PrimaryButtonComponent";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 function ItemCountComponent(props) {
 

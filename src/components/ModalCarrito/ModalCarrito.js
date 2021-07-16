@@ -1,12 +1,15 @@
 import Modal from 'react-modal';
 import { useCartContext } from '../../context/CartContext'
 import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButtonComponent"
-import SecundaryButton from "../Buttons/SecundaryButton/SecundaryButtonComponent"
+
 
 Modal.setAppElement("#root");
 
-function ModalCarrito({ isOpen, toggleModal, product }) {
+function ModalCarrito({ isOpen, toggleModal, productos }) {
+
+
     const { cart, clearCart } = useCartContext();
+    console.log(cart)
     return (
         <Modal
             isOpen={isOpen}
@@ -35,15 +38,15 @@ function ModalCarrito({ isOpen, toggleModal, product }) {
                     </div>
                 </div>
                 <div style={{ display: "flex", width: "800px", justifyContent: "center", }}>
-                    <div style={{ display: "flex", height: "350px", marginTop: "4%", width: "60%", border: "1px solid rgba(0, 0, 0, 1)", flexDirection: "column", flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", height: "350px", marginTop: "4%", width: "60%", border: "1px solid rgba(0, 0, 0, 1)", flexDirection: "column", overflowY: "scroll" }}>
                         {cart.map((item) => (
                             <div style={{ flexDirection: "row", display: "flex", marginTop: "5%", marginLeft: "20px" }}>
                                 <div style={{ border: "1px solid rgba(0, 0, 0, 1)", marginRight: "10px", justifyContent: 'center', alignItems: "center", display: "flex" }}>
-                                    <img src={item.images[0]} alt="Product" style={{ height: "80px", width: "80px" }}></img>
+                                    <img src={item.img1} alt="Product" style={{ height: "80px", width: "80px" }}></img>
                                 </div>
                                 <h1>{item.quantity} </h1>
                                 <h1 style={{ marginLeft: "5px", marginRight: "5px" }}> - </h1>
-                                <h1>{item.name}</h1>
+                                <h1>{item.title}</h1>
                             </div>
                         ))}
                     </div>
