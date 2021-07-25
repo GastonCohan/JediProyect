@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
 import ItemCountComponent from "../Buttons/ItemCount/ItemCountComponent";
 import "./CardItemStyles.css"
-import { productsData } from "../ItemList/ItemsListComponent"
 import SecundaryButton from "../Buttons/SecundaryButton/SecundaryButtonComponent";
 import ModalComponent from "../Modal/ModalComponent";
 import { useCartContext } from "../../context/CartContext";
 import { db } from "../../firebase/firebase"
+
 
 function CardItemComponent() {
 
@@ -43,8 +43,6 @@ function CardItemComponent() {
         })
     }
 
-
-
     return (
         <div className="cardContainer">
             <ModalComponent isOpen={isOpen} toggleModal={toggleModal} product={identify} />
@@ -68,10 +66,10 @@ function CardItemComponent() {
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "5%", marginBottom: "5%" }} onClick={() => { toggleModal(); changeIdentify(producto.id) }}>
                             <SecundaryButton text="Detalle del producto" />
                         </div>
-
                     </div>
                 )
             })}
+
         </div>
     )
 }

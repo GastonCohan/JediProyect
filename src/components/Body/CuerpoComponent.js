@@ -6,7 +6,7 @@ import "./CuerpoComponentStyles.css"
 const CuerpoComponent = () => (
   <div>
     <div className="Banner">
-      <img src="https://www.thehomegaming.com/user/pages/01.blog/224.star-wars-a-traves-del-canon-00-principal/l3fya3oustw41.jpg" alt="Banner" style={{ height: "50vh", width: "100%" }} />
+      <img src="https://i.redd.it/l3fya3oustw41.jpg" alt="Banner" style={{ height: "50vh", width: "100%" }} />
     </div>
     <div className="titleContainer">
       <h1 className="textTitleBody">¿ Quiénes Somos ? </h1>
