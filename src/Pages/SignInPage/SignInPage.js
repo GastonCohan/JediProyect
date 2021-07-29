@@ -52,7 +52,7 @@ function SignInScreen() {
                                 <PrimaryButtonComponent text="¿No tiénes cuenta? Regístrate." />
                             </Link>
                         </div>
-                        <div style={{ marginTop: "5%", display: "flex", justifyContent: "center" }}>
+                        <div style={{ marginTop: "5%", display: "flex", justifyContent: "center", marginBottom: "5%" }}>
                             <Link to="/">
                                 <PrimaryButtonComponent text="Volver." />
                             </Link>

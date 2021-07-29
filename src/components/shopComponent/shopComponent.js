@@ -55,7 +55,7 @@ function ShopComponent(props) {
     }
 
     const adminAccount = () => {
-        return true
+        return false
     }
 
 
@@ -71,26 +71,28 @@ function ShopComponent(props) {
                     </div>
                 </div>
             }
-            {isAdminActived2() &&
+            {
+                isAdminActived2() &&
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "2%", marginBottom: "-2%" }}>
                     <Button secondary style={{ backgroundColor: "black", color: "white", width: "250px", borderRadius: "10px" }} onClick={() => addProductAtived()}>Agregar Producto</Button>
                 </div>
             }
-            {isAddProductAtived && isAdminActived2() ?
-                <div>
-                    <AddProduct firebaseCollection={props.firebaseCollection} />
-                </div>
-                :
-                <div>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: isAdminActived2() ? "4%" : "2%", flexDirection: "column" }}>
-                        <h1 className="textTitleBody">Tienda {props.name}</h1>
-                        <h3 className="textDescrptionShop">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem odit saepe, placeat sint, quaerat voluptate sed quisquam iusto, et culpa eligendi esse incidunt illo laudantium exercitationem natus eveniet rerum! Quidem?</h3>
+            {
+                isAddProductAtived && isAdminActived2() ?
+                    <div>
+                        <AddProduct firebaseCollection={props.firebaseCollection} />
                     </div>
-                    <div className="tiendaContainer">
-                        <CardItemComponent collection={props.collection} />
-                    </div>
+                    :
+                    <div>
+                        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: isAdminActived2() ? "4%" : "2%", flexDirection: "column" }}>
+                            <h1 className="textTitleBody">Tienda {props.name}</h1>
+                            <h3 className="textDescrptionShop">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem odit saepe, placeat sint, quaerat voluptate sed quisquam iusto, et culpa eligendi esse incidunt illo laudantium exercitationem natus eveniet rerum! Quidem?</h3>
+                        </div>
+                        <div className="tiendaContainer">
+                            <CardItemComponent collection={props.collection} />
+                        </div>
 
-                </div>
+                    </div>
             }
 
 
