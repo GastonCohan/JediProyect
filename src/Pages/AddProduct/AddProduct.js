@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Button, Form, TextArea } from 'semantic-ui-react';
 import "semantic-ui-css/semantic.min.css"
-import './AddProduct.css'
+import './AddProductStyles.css'
 import toast from 'react-hot-toast';
 import { db } from "../../firebase/firebase"
 
@@ -10,11 +10,11 @@ import { db } from "../../firebase/firebase"
 
 // RENDER
 
-function AddProduct() {
+function AddProduct(props) {
 
     const addProduct = async (object) => {
         // console.log('Product', object);
-        await db.collection('products').doc().set(object);
+        await db.collection(props.firebaseCollection).doc().set(object);
         console.log('Producto agregado!');
     };
 
@@ -23,7 +23,7 @@ function AddProduct() {
     const initialState = {
         title: '',
         price: '',
-        stock: '',
+        stock: 0,
         height: '',
         weight: '',
         collection: '',
@@ -38,6 +38,7 @@ function AddProduct() {
         const { name, value } = e.target;
         setValues({ ...values, [name]: value });
     };
+
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
@@ -139,8 +140,8 @@ function AddProduct() {
                             />
                         </Form.Field>
                         {allFildsComplete() &&
-                            <div style={{ marginTop: "2%", marginBottom: "2%" }}>
-                                <h3>Debes completar todos los campos para poder guardar el producto.</h3>
+                            <div style={{ marginTop: "2%", marginBottom: "2%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                <h4 style={{ color: "red" }}>Debes completar todos los campos para poder guardar el producto.</h4>
                             </div>
                         }
                         <Button type='submit' disabled={allFildsComplete()} primary fluid onClick={() => notify()}>

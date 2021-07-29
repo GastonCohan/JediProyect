@@ -32,10 +32,6 @@
     margin-bottom: 10px;
 }
 
-.imageCard {
-    padding: 2px;
-}
-
 .cardContainer {
     flex-direction: row;
     display: flex;
@@ -50,7 +46,7 @@
     margin-right: 20px;
   background-color: #D6D2C4;
   margin-top: 50px;
-  height: 620px;
+  height: 630px;
 }
 
 .descriptionCard {

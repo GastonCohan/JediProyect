@@ -7,7 +7,7 @@ import { useCartContext } from "../../context/CartContext";
 import { db } from "../../firebase/firebase"
 
 
-function CardItemComponent() {
+function CardItemComponent(props) {
 
     const [isOpen, setIsOpen] = useState(false);
     const [identify, setIdentify] = useState(null);
@@ -30,11 +30,9 @@ function CardItemComponent() {
         getProducts()
     }, []);
 
-    console.log(productos)
-
     const getProducts = () => {
         const docs = [];
-        db.collection("products").onSnapshot((querySnapshot) => {
+        db.collection(props.collection).onSnapshot((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 docs.push({ ...doc.data(), id: doc.id })
                 console.log(docs)
@@ -47,11 +45,10 @@ function CardItemComponent() {
         <div className="cardContainer">
             <ModalComponent isOpen={isOpen} toggleModal={toggleModal} product={identify} />
             {productos.map((producto) => {
-                console.log("identificar producto:", producto)
                 return (
-                    <div className="innerCardContainer">
-                        <div className="imageCard">
-                            <img src={producto.img1} alt="Product" style={{ height: "300px", width: "290px" }}></img>
+                    <div className="innerCardContainer" style={{ border: "1px solid rgba(0, 0, 0, 1)" }}>
+                        <div style={{ padding: "5px " }}>
+                            <img src={producto.img1} alt="Product" style={{ height: "300px", width: "290px", borderBottom: "1px solid rgba(0, 0, 0, 1)" }}></img>
                         </div>
                         <div className="descriptionCard">
                             <h2 className="titleProduct">{producto.title}</h2>

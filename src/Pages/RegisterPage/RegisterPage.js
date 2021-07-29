@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "semantic-ui-css/semantic.min.css"
+import { Form, Button } from 'semantic-ui-react';
+import toast from 'react-hot-toast';
+import { db } from "../../firebase/firebase"
 
 // COMPONENTS
 
@@ -7,83 +10,172 @@ import NavBarComponent from "../../components/NavBar/NavBarComponent";
 import PrimaryButtonComponent from "../../components/Buttons/PrimaryButton/PrimaryButtonComponent"
 import { Link } from "react-router-dom";
 
+
 // RENDER
-
-function registerFunction() {
-    if (1 > 0) {
-        return false
-    }
-}
-
 
 function RegisterScreen() {
 
-    // const [inputText, setInputText] = useState('')
+    const initialState = {
+        user: "",
+        email: "",
+        password: "",
+        passwordConfirmed: "",
+    };
 
-    const onHandleSubmit = (e) => {
-        console.log("hiciste Click")
+    const [values, setValues] = useState(initialState);
+    // const [showPassword, setShowPassword] = React.useState(false);
+    const notify = () => toast('Te has registrado con éxito!');
+
+
+
+    const addProduct = async (object) => {
+        // console.log('Product', object);
+        await db.collection('users').doc().set(object);
+        console.log('Producto agregado!');
+    };
+
+
+
+    const handleOnChange = (e) => {
+        const { name, value } = e.target;
+        setValues({ ...values, [name]: value });
+    };
+
+    const handleOnSubmit = (e) => {
+        e.preventDefault();
+        addProduct(values);
+        setValues({ ...initialState });
+    };
+
+    const allFildsComplete = () => {
+        if (values.user !== "" && values.password !== "" && values.passwordConfirmed !== "" && values.passwordConfirmed === values.password && values.email !== "" && validateEmail() && passwordIsValid()) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    const idemPassword = () => {
+        if (values.password !== values.passwordConfirmed) {
+            return false
+        } else {
+            return true
+        }
+    }
+
+    const passwordIsntNull = () => {
+        if (values.password !== '') {
+            return true
+        } else {
+            return false
+        }
+    }
+
+
+    const validateEmail = () => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (reg.test(values.email)) {
+            return true;
+        }
+        else {
+            return false
+        }
+    }
+
+    const passwordIsValid = () => {
+        var pattern = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{4,}$/)
+
+        if (pattern.test(values.password)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     return (
-        <div style={{
-            backgroundImage: `url("https://images.alphacoders.com/107/thumb-1920-107763.jpg")`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: "cover",
-            height: "100vh",
-        }}>
-            <NavBarComponent />
-            <form onSubmit={onHandleSubmit()}>
-                <div style={{
-                    backgroundColor: "white", height: "530px", width: "30%", marginTop: "4%", marginLeft: "10%", borderRadius: "5%", backgroundImage: `url("https://www.esa.int/var/esa/storage/images/19716864-11-eng-GB/ESA_root_pillars.jpg")`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: "cover",
-                }}>
-                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                        <h2 style={{ color: "white", marginTop: "7%", fontFamily: "monospace" }}>Registrate</h2>
-                        <form style={{ marginRight: "10%" }}>
-                            <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", marginLeft: "15%" }}>
-                                <div style={{ display: "flex", flexDirection: "column", width: "100%", marginTop: "10%" }}>
-                                    <h3 style={{ color: "white" }}>Usuario:</h3>
-                                    <h3 style={{ color: "white" }}>Contraseña:</h3>
-                                    <h3 style={{ color: "white" }}>Repite la contraseña:</h3>
-                                    <h3 style={{ color: "white" }}>Email:</h3>
-                                </div>
-                                <div style={{ display: "flex", flexDirection: "column", width: "100%", marginTop: "10%", marginRight: "3%" }}>
-                                    <input type="text" />
-                                    <input type="text" style={{ marginTop: "25%" }} />
-                                    <input type="text" style={{ marginTop: "30%" }} />
-                                    <input type="text" style={{ marginTop: "35%" }} />
-                                </div>
-                            </div>
-                        </form>
-                        <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center", width: "100%", marginTop: "5%" }}>
-                            <input type="checkbox" style={{ marginRight: "3%" }} />
-                            <div style={{ marginTop: "0px" }}>
-                                <h4 style={{ color: "white" }}>Acepto los terminos y condiciones</h4>
-                            </div>
+        <div className="PageContainer">
+            <div style={{
+                backgroundImage: `url("https://images.alphacoders.com/107/thumb-1920-107763.jpg")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: "cover",
+                height: "100vh",
+            }}>
+                <NavBarComponent />
+                <div style={{}}>
+                    <div style={{
+                        backgroundColor: "white", height: "550px", width: "30%", marginTop: "4%", marginLeft: "10%", borderRadius: "5%", backgroundImage: `url("https://www.esa.int/var/esa/storage/images/19716864-11-eng-GB/ESA_root_pillars.jpg")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: "cover",
+                    }}>
+                        <div style={{ display: "flex", justifyContent: "center" }}>
+                            <h1 style={{ color: "white", marginTop: "10%" }}>Registro</h1>
                         </div>
-                        <div>
-                            <div style={{ marginTop: "10%", display: "flex", justifyContent: "center" }} onClick={() => registerFunction()} >
-                                <PrimaryButtonComponent text="Registrarme." />
-                            </div>
-                            {
-                                registerFunction() &&
-                                <div style={{ marginTop: "5%" }}>
-                                    <h3 style={{ color: "yellow", fontSize: "100%" }}>Por favor, ingresa los datos adecutados</h3>
+                        <Form onSubmit={handleOnSubmit}>
+                            <Form.Field style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "10%" }}>
+                                <input
+                                    placeholder='Usuario'
+                                    onChange={handleOnChange}
+                                    name='user'
+                                    value={values.user}
+                                    style={{ width: "50%", height: '10%' }}
+                                />
+                            </Form.Field>
+                            <Form.Field style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%", flexDirection: "row" }}>
+                                <input
+                                    placeholder='Contraseña'
+                                    onChange={handleOnChange}
+                                    name='password'
+                                    value={values.password}
+                                    style={{ width: "50%", height: '10%' }}
+                                />
+                            </Form.Field>
+                            {!passwordIsValid() && passwordIsntNull() &&
+                                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
+                                    <h5 style={{ color: "yellow", marginBottom: "0px" }}>Las contraseñas debe tener como mínimo 4 caracterés,</h5>
+                                    <h5 style={{ color: "yellow", marginTop: '0px' }}>una mayúscula y un número.</h5>
+                                </div>}
+                            <Form.Field style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%" }}>
+                                <input
+                                    placeholder='Repita la contraseña'
+                                    onChange={handleOnChange}
+                                    name='passwordConfirmed'
+                                    value={values.passwordConfirmed}
+                                    style={{ width: "50%", height: '10%' }}
+                                />
+                            </Form.Field>
+                            {!idemPassword() &&
+                                <div style={{ marginTop: "-5px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                    <h4 style={{ color: "yellow" }}>Las contraseñas no coinciden.</h4>
+                                </div>}
+                            <Form.Field style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%" }}>
+                                <input
+                                    placeholder='Email'
+                                    onChange={handleOnChange}
+                                    name='email'
+                                    value={values.email}
+                                    style={{ width: "50%", height: '10%' }}
+                                />
+                            </Form.Field>
+                            {allFildsComplete() &&
+                                <div style={{ marginTop: "5%", marginBottom: "5%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                    <h4 style={{ color: "yellow" }}>Debes completar todos los campos para poder registrarte.</h4>
                                 </div>
-
                             }
-                            <div style={{ marginTop: "5%", display: "flex", justifyContent: "center" }}>
+                            <div style={{ marginTop: "3%", display: "flex", justifyContent: "center" }} >
+                                <div>
+                                    <Button secondary disabled={allFildsComplete()} type="sumbit" onClick={() => { notify() }} style={{ backgroundColor: "black", color: "white", width: "250px", borderRadius: "10px" }}>Registrarse</Button>
+                                </div >
+                            </div>
+                            <div style={{ marginTop: "2%", display: "flex", justifyContent: "center" }}>
                                 <Link to="/SignIn">
                                     <PrimaryButtonComponent text="¿Ya tienes una cuenta? Inicia sesión." />
                                 </Link>
                             </div>
-                        </div>
+                        </Form>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
-
     );
 }
 

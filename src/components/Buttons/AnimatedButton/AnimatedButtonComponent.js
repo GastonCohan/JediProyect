@@ -3,8 +3,8 @@ import { Button, Icon } from 'semantic-ui-react'
 import "./AnimatedButtonStyles.css"
 
 const AnimatedButton = (props) => (
-  <div className="shopButtonStyles">  
-    <Button animated='vertical' style={{backgroundColor: "#3EDBF0"}} /*onClick={goToShop()}*/>
+  <div className="shopButtonStyles">
+    <Button animated='vertical' style={{ backgroundColor: "#3EDBF0" }} >
       <Button.Content hidden><Icon name={props.icon} color="black " /></Button.Content>
       <Button.Content visible>
         {props.title}
@@ -13,5 +13,4 @@ const AnimatedButton = (props) => (
   </div>
 )
 
-export default AnimatedButton 
- 
+export default AnimatedButton

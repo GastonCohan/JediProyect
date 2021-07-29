@@ -13,6 +13,7 @@ import RecoverPasswordSuccedPage from './Pages/RecoverPasswordSuccedPage/Recover
 import ShopComponent from './Pages/ShopPage/ShopComponent'
 import AddProduct from './Pages/AddProduct/AddProduct';
 import { CartProvider } from './context/CartContext';
+import legoShop from './Pages/LegoShop/legoShop';
 
 // RENDER
 
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/RecoverPassword" component={RecoverPassword} />
         <Route exact path="/RecoverPasswordSucced" component={RecoverPasswordSuccedPage} />
         <Route exact path="/Shop" component={ShopComponent} />
+        <Route exact path="/legoShop" component={legoShop} />
         <Route exact path="/AddProduct" component={AddProduct} />
       </CartProvider>
     </div>

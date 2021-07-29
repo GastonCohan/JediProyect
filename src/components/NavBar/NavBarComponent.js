@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import "./NavBarStylesComponent.css"
 import { Link } from 'react-router-dom'
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemHeading,
+    AccordionItemButton,
+    AccordionItemPanel,
+} from 'react-accessible-accordion';
 
 //Components 
 
 import AnimatedButtonComponent from '../Buttons/AnimatedButton/AnimatedButtonComponent'
 import ModalCarrito from "../ModalCarrito/ModalCarrito"
-
-// Const
-
-
+import ShopButton from '../Buttons/ShopButton/shopButton';
 
 function NavBarComponent() {
 
@@ -49,18 +53,31 @@ function NavBarComponent() {
                     <a href="https://www.instagram.com/yoda.1971/?hl=es-la" target="blanck"><AnimatedButtonComponent icon="instagram" title="Instagram" /></a>
                 </div>
                 <div style={{ marginLeft: "10px" }}>
-                    {!(url.includes("shop")) &&
-                        <div>
+                    <Accordion allowZeroExpanded>
+                        <AccordionItem>
+                            <AccordionItemHeading>
+                                <AccordionItemButton style={{ backgroundColor: "#3EDBF0", borderRadius: "5px", textAlign: "center" }}>
+                                    <AnimatedButtonComponent title="Tienda" icon="shop" />
+                                </AccordionItemButton>
+                            </AccordionItemHeading>
                             <Link to="/Shop">
-                                <AnimatedButtonComponent title="Tienda" icon="shop" />
+                                <AccordionItemPanel style={{ backgroundColor: "#3EDBF0", borderRadius: "5px", marginTop: "5px", textAlign: 'center' }}>
+                                    <ShopButton title="Principal" icon="shop" />
+                                </AccordionItemPanel>
                             </Link>
-                        </div>
-                    }
+                            <Link to="/legoShop">
+                                <AccordionItemPanel style={{ backgroundColor: "#3EDBF0", borderRadius: "5px", marginTop: "5px", marginBottom: '5px', textAlign: 'center' }}>
+                                    <ShopButton title="Lego" icon="shop" />
+                                </AccordionItemPanel>
+                            </Link>
+                        </AccordionItem>
+                    </Accordion>
+
                 </div>
-                <div>
+                <div style={{ marginLeft: "14px" }}>
                     {(url.includes("shop")) &&
                         <div onClick={() => { toggleModal() }}>
-                            <AnimatedButtonComponent title="Carrito" icon="shop" />
+                            <AnimatedButtonComponent title="Carrito" icon="dollar" />
                         </div>
                     }
                 </div>

@@ -63,14 +63,13 @@ function ModalComponent({ isOpen, toggleModal, product }) {
                                 <img src={product.img1} style={{ height: "100px", width: "100px", }} alt='ImagenPrincipal' />
                             </div>
                             <div style={{ height: "112.5px", borderBottom: "1px solid", display: "flex", justifyContent: "center", alignItems: "center" }} onClick={() => changeSecondPhoto()}>
-                                <img src={product.img2} style={{ height: "100px", width: "100px", }} alt='ImagenPrincipal' />
+                                <img src={product.img2} style={{ height: "100px", width: "100px", }} alt='SegundaImagen' />
                             </div>
                             <div style={{ height: "112.5px", borderBottom: "1px solid", display: "flex", justifyContent: "center", alignItems: "center" }} onClick={() => changeThirdPhoto()}>
                                 <img src={product.img3} style={{ height: "100px", width: "100px", }} alt='TerceraImagen' />
                             </div>
                             <div style={{ height: "112.5px", display: "flex", justifyContent: "center", alignItems: "center" }} onClick={() => changeFourPhoto()}>
-                                <img src={product.img4} style={{ height: "100px", width: "100px", }} alt='TerceraImagen' />
-                                {/* <img src={product.images[3]} style={{ height: "100px", width: "100px", }} alt="CuartaImagen" /> */}
+                                <img src={product.img4} style={{ height: "100px", width: "100px", }} alt='CuartaImagen' />
                             </div>
                         </div>
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "450px", marginTop: "4%", width: "60%", border: "1px solid rgba(0, 0, 0, 1)", marginLeft: "10px" }}>
@@ -79,10 +78,10 @@ function ModalComponent({ isOpen, toggleModal, product }) {
                         <div style={{ display: "flex", height: "450px", border: "1px solid rgba(0, 0, 0, 1)", marginTop: "4%", width: "30%", marginLeft: "10px", justifyContent: "center" }}>
                             <div style={{ flexDirection: "column" }}>
                                 <h2 style={{ marginTop: "50px" }}>Caracterísitcas</h2>
-                                {/* <h3 style={{ marginTop: "50px" }}>Altura: {product.altura} </h3> */}
-                                {/* <h3>Peso: {product.peso}</h3> */}
-                                {/* <h3>Coleccion: {product.coleccion} </h3> */}
-                                {/* <h3>Saga: {product.saga}</h3> */}
+                                <h3 style={{ marginTop: "50px" }}>Altura: {product.height} cm. </h3>
+                                <h3>Peso: {product.weight} kg.</h3>
+                                <h3>Coleccion: {product.collection} </h3>
+                                <h3>Saga: {product.saga}</h3>
                                 <h3>Precio: ${product.price} </h3>
                             </div>
                         </div>

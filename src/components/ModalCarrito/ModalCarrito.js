@@ -10,6 +10,12 @@ function ModalCarrito({ isOpen, toggleModal }) {
 
     const { cart, clearCart } = useCartContext();
 
+    const totalPrice = () => {
+        cart.reduce((acc, item) => {
+            return acc + item.price * item.quantity
+        }, 0);
+    }
+
     return (
         <Modal
             isOpen={isOpen}
@@ -59,16 +65,14 @@ function ModalCarrito({ isOpen, toggleModal }) {
                         {cart.map((item) => (
                             <div style={{ display: "flex", marginTop: "5%", marginBottom: "5%", marginLeft: "20px", height: '82px', justifyContent: "center", alignItems: "center" }}>
                                 <h1>${item.price * item.quantity}</h1>
-
                             </div>
-
                         ))}
 
                     </div>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <div style={{ display: "flex", width: "90%", border: "1px solid rgba(0, 0, 0, 1)", justifyContent: "center", alignItems: "center" }}>
-                        <h1>Total:</h1>
+                        <h3>Total: ${totalPrice}</h3>
                     </div>
                 </div>
                 {/* {cartProductos() &&
