@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import Modal from 'react-modal';
 import { useCartContext } from '../../context/CartContext'
 import PrimaryButton from "../Buttons/PrimaryButton/PrimaryButtonComponent"
+import { Link } from "react-router-dom";
 
 
 Modal.setAppElement("#root");
@@ -9,12 +11,14 @@ function ModalCarrito({ isOpen, toggleModal }) {
 
 
     const { cart, clearCart } = useCartContext();
+    const { removeProduct } = useCartContext();
+    let totalPrice2
 
-    const totalPrice = () => {
-        cart.reduce((acc, item) => {
-            return acc + item.price * item.quantity
-        }, 0);
-    }
+    const totalPrice = () => cart.reduce((acc, item) => {
+        return totalPrice2 = acc + item.price * item.quantity
+    }, 0);
+
+    console.log("carrito:", cart)
 
     const totalCartProducts = () => {
         if (cart.map((item) => (item.id)).length > 0) {
@@ -23,7 +27,6 @@ function ModalCarrito({ isOpen, toggleModal }) {
             return true
         }
     }
-
 
     return (
         <Modal
@@ -40,12 +43,18 @@ function ModalCarrito({ isOpen, toggleModal }) {
                     justifyContent: totalCartProducts() ? "center" : "",
                     alignItems: totalCartProducts() ? "center" : "",
                     borderRadius: "5%",
-
+                    zIndex: 9999
                 }
             }}
         >
 
-
+            {/* <div> */}
+            {/* {shopActived ?
+                    <div>
+                        <h1>hola</h1>
+                        <button text="Cerrar" onClick={() => { closeFinishProcess() }}>Cerrar</button>
+                    </div> */}
+            {/* : */}
             <div>
                 {totalCartProducts() ?
                     <div>
@@ -74,7 +83,7 @@ function ModalCarrito({ isOpen, toggleModal }) {
                                 {cart.map((item) => (
                                     <div style={{ flexDirection: "row", display: "flex", marginTop: "2.5%", marginBottom: "2.5%", marginLeft: "20px" }}>
                                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginRight: "10px" }}>
-                                            <button class="ui icon button">
+                                            <button class="ui icon button" onClick={() => removeProduct(item)}>
                                                 <i class="delete icon"></i>
                                             </button>
                                         </div>
@@ -98,22 +107,26 @@ function ModalCarrito({ isOpen, toggleModal }) {
                         </div>
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                             <div style={{ display: "flex", width: "90%", border: "1px solid rgba(0, 0, 0, 1)", justifyContent: "center", alignItems: "center" }}>
-                                <h3>Total: ${totalPrice}</h3>
+                                <h3>Total: ${totalPrice()}</h3>
                             </div>
                         </div>
 
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "3%" }} onClick={clearCart} >
                             <PrimaryButton text="VACIAR CARRITO"></PrimaryButton>
                         </div>
-                        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "3%" }} >
-                            <PrimaryButton text="COMPRAR"></PrimaryButton>
-                        </div>
+                        <Link to="/BuyPage" total={totalPrice2}>
+                            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "3%" }} onClick={toggleModal}>
+                                <PrimaryButton text="COMPRAR"></PrimaryButton>
+                            </div>
+                        </Link>
                         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "flex-end", marginTop: "1%", marginBottom: "2%" }} onClick={toggleModal}>
                             <button text="Cerrar">Cerrar</button>
                         </div>
                     </div>
                 }
             </div>
+            {/* }
+            </div> */}
         </Modal >
     )
 }

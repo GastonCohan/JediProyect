@@ -35,8 +35,8 @@ function AddProduct(props) {
     const [values, setValues] = useState(initialState);
 
     const handleOnChange = (e) => {
-        const { name, value } = e.target;
-        setValues({ ...values, [name]: value });
+        const { name, value, type } = e.target;
+        setValues({ ...values, [name]: type === "number" ? +value : value });
     };
 
 

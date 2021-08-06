@@ -34,7 +34,7 @@ function NavBarComponent() {
             </div>
             <div className="options">
                 <div>
-                    {!(url.includes("/home")) &&
+                    {!(url.includes("Home")) &&
                         < div >
                             <Link to="/">
                                 <AnimatedButtonComponent title="Home" icon="home" />

@@ -55,7 +55,7 @@ function ShopComponent(props) {
     }
 
     const adminAccount = () => {
-        return false
+        return true
     }
 
 
@@ -66,7 +66,7 @@ function ShopComponent(props) {
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "5%" }}>
                     <div class="ui large buttons">
                         <button class={userActived} onClick={() => userActivedPress()} style={{ background: isUserActived2() ? "green" : "grey", color: 'white' }}> User</button>
-                        <div class="or"></div>
+                        <div class="or" style={{ zIndex: 0 }}></div>
                         <button class={adminActived} onClick={() => adminActivedPress()} style={{ background: isAdminActived2() ? "green" : "grey", color: "white" }}> Admin</button>
                     </div>
                 </div>
