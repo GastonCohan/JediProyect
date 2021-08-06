@@ -45,7 +45,7 @@ function ItemCountComponent(props) {
                     <h3 style={{ color: "red" }}>Sin stock acualmente</h3>
                 </div>
             }
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "5%", marginBottom: "5%" }} onClick={() => { props.onAdd(toAdd); notify() }}>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "5%", marginBottom: "5%" }} onClick={() => { props.onAdd(toAdd); notify() }} >
                 <PrimaryButton disabled={!llegaStock} text="Agregar al carrito" />
             </div>
         </div>

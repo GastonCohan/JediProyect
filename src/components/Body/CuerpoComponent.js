@@ -29,12 +29,12 @@ const CuerpoComponent = () => (
               <img src="https://www.lego.com/cdn/cs/set/assets/blt0aef318b4ac5fecb/HeroBanner-Standard_desktop.jpg?fit=crop&format=jpg&quality=80&width=1600&height=500&dpr=1" alt="Banner" style={{ height: "20vh", width: "100%" }} />
             </Link>
           </div>
-          <div style={{ display: "flex", width: "1000px", justifyContent: "center", alignItems: "center", marginTop: "24px", height: "20vh", border: "1px solid rgba(0, 0, 0, 1)" }}>
+          {/* <div style={{ display: "flex", width: "1000px", justifyContent: "center", alignItems: "center", marginTop: "24px", height: "20vh", border: "1px solid rgba(0, 0, 0, 1)" }}>
             <img src="https://pbs.twimg.com/media/EF4wuCXUEAAv6Yc.jpg" alt="Banner" style={{ height: "20vh", width: "100%" }} />
           </div>
           <div style={{ display: "flex", width: "1000px", justifyContent: "center", alignItems: "center", marginTop: "24px", height: "20vh", border: "1px solid rgba(0, 0, 0, 1)", marginBottom: "10%" }}>
             <img src="https://i2.wp.com/www.lafosadelrancor.com/wp-content/uploads/2018/11/Star-Wars-Planeta-Comic.jpg?zoom=2&fit=970%2C250&ssl=1" alt="Banner" style={{ height: "20vh", width: "100%" }} />
-          </div>
+          </div> */}
         </ul>
       </div>
     </div>
