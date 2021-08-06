@@ -6,6 +6,10 @@ import { db } from "../../firebase/firebase"
 import NavBarComponent from '../../components/NavBar/NavBarComponent';
 import { useCartContext } from '../../context/CartContext'
 import { Link } from "react-router-dom";
+import { compressToBase64 } from 'lz-string';
+import { useHistory } from "react-router-dom";
+// import * as firebase from 'firebase';
+// import 'firebase/firestore'
 
 // COMPONENTS
 
@@ -13,9 +17,18 @@ import { Link } from "react-router-dom";
 
 function BuyPage() {
 
-    const addProduct = async (object) => {
-        await db.collection("compras").doc().set(object);
+    const addCompra = (object) => {
+        return db.collection("compras").add(object);
     };
+
+    let history = useHistory();
+
+    // compras.add(newCompra).then(({ id }) => {
+    //     setOrder(id); // SUCCESS
+    // }).catch(err => {
+    //     setError(err); // ERROR
+    // })
+    // }
 
     const totalPrice = () => cart.reduce((acc, item) => {
         return acc + item.price * item.quantity
@@ -23,19 +36,24 @@ function BuyPage() {
 
     const { cart, clearCart } = useCartContext();
 
+    // const date = () => {
+    //     return firebase.firestore.Timestamp.fromDate(new Date())
+    // }
+
     const notify = () => toast('Finalizaste la compra con éxito');
+    const notify2 = () => toast('Ocurrio un error en la compra');
 
     const initialState = {
         name: '',
         lastname: '',
         email: '',
         comments: '',
-        home: '',
-        products: '',
-        quantity: '',
+        home: ''
     };
 
     const [values, setValues] = useState(initialState);
+    const [compraFinalizada, setCompraFinalizada] = useState(false);
+    console.log("compraFinalizada", compraFinalizada)
 
     const handleOnChange = (e) => {
         const { name, value } = e.target;
@@ -43,11 +61,29 @@ function BuyPage() {
     };
 
 
-    const handleOnSubmit = (e) => {
-        e.preventDefault();
-        addProduct(values);
-        setValues({ ...initialState });
+    const handleOnSubmit = async (e) => {
+        try {
+            e.preventDefault();
+            const { id } = await addCompra({ ...values, cart: cart.map(({ id, title, quantity }) => ({ id, title, quantity })) });
+            await updateStock()
+            console.log("id compra", id)
+            setValues({ ...initialState });
+            notify()
+            clearCart()
+            history.push("/OrderGenerated", { id });
+        } catch (e) {
+            notify2()
+        }
     };
+
+    const updateStock = () => {
+        cart.forEach(item => {
+            const docRef = db.collection("products").doc(item.id);
+            const docRef2 = db.collection("legoProducts").doc(item.id);
+            docRef.update({ stock: item.stock - item.quantity })
+            docRef2.update({ stock: item.stock - item.quantity })
+        })
+    }
 
     const allFildsComplete = () => {
         if (values.name !== "" && values.lastname !== "" && values.email !== "") {
@@ -55,11 +91,6 @@ function BuyPage() {
         } else {
             return true
         }
-    }
-
-    const goToLogin = () => {
-        return <Link to="/">
-        </Link>
     }
 
     return (
@@ -132,15 +163,20 @@ function BuyPage() {
                             <h4 style={{ marginTop: "0" }}>
                                 Total : $ {totalPrice()}
                             </h4>
+                            <h4 style={{ marginTop: "0" }}>
+                                {/* Fecha : {date} */}
+                            </h4>
                         </div>
                         {allFildsComplete() &&
                             <div style={{ marginTop: "2%", marginBottom: "2%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                                 <h4 style={{ color: "red" }}>Debes completar todos los campos para poder finalizar la compra.</h4>
                             </div>
                         }
-                        <Button type='submit' disabled={allFildsComplete()} primary fluid onClick={() => { notify() && clearCart() && goToLogin() }} style={{ marginTop: "5%" }}>
+
+                        <Button type='submit' disabled={allFildsComplete()} primary fluid style={{ marginTop: "5%" }} >
                             Comprar
                         </Button>
+
                     </Form>
                 </div>
             </div>

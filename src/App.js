@@ -15,6 +15,7 @@ import AddProduct from './Pages/AddProduct/AddProduct';
 import { CartProvider } from './context/CartContext';
 import legoShop from './Pages/LegoShop/legoShop';
 import BuyPage from './Pages/BuyPage/BuyPage';
+import OrderGenerated from './Pages/OrderGenerated/OrderGenerated';
 
 // RENDER
 
@@ -34,6 +35,7 @@ function App() {
         <Route exact path="/legoShop" component={legoShop} />
         <Route exact path="/AddProduct" component={AddProduct} />
         <Route exact path="/BuyPage" component={BuyPage} />
+        <Route exact path="/OrderGenerated" component={OrderGenerated} />
       </CartProvider>
     </div>
   )
